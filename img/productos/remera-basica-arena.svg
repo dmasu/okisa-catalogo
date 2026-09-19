@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" width="800" height="1000">
+<rect width="200" height="250" fill="#F3EBDD"/>
+<circle cx="100" cy="112" r="78" fill="#fff" fill-opacity=".35"/>
+<g transform="translate(0 12)" fill="#E9D6B5"><path d="M60 30 L85 20 Q100 36 115 20 L140 30 L172 62 L150 84 L136 72 L136 172 L64 172 L64 72 L50 84 L28 62 Z"/></g>
+<text x="100" y="228" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#8D7267" fill-opacity=".8">Foto de ejemplo</text>
+</svg>
