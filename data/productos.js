@@ -28,10 +28,10 @@ window.OKISA = {
 
   /* ---------- Categorías (en el orden en que aparecen) ---------- */
   // Cada producto debe usar EXACTAMENTE uno de estos nombres.
-  CATEGORIAS: ["Bebés", "Nenas", "Nenes", "Pijamas", "Abrigos", "Accesorios"],
+  CATEGORIAS: ["Ajuares", "Bodies", "Conjuntos", "Ranitas", "Jardineros", "Bermudas", "Remeras", "Abrigos", "Accesorios"],
 
   /* ---------- Talles (define el orden del filtro) ---------- */
-  TALLES: ["RN", "0-3m", "3-6m", "6-9m", "9-12m", "12-18m", "2", "4", "6", "8", "10", "12", "Único"],
+  TALLES: ["RN", "RN1", "RN2", "1", "2", "3M", "6M", "9M", "12M", "18M", "24M", "4", "6", "Único"],
 
   /* ---------- Productos ----------
      nombre       Título del producto
@@ -52,128 +52,408 @@ window.OKISA = {
   ------------------------------------------------------- */
   PRODUCTOS: [
     {
-      nombre: "Body manga larga de algodón",
-      descripcion: "Suave y elástico, con broches en la entrepierna. Ideal para usar solo o como base de abrigo.",
+      nombre: "Ajuares hilo",
+      descripcion: "",
+      precio: 25000,
+      categoria: "Ajuares",
+      talles: ["1", "2"],
+      foto: "img/productos/ajuares-hilo-marfil.webp",
+      colores: [
+        { nombre: "Marfil", hex: "#F2EBDC", foto: "img/productos/ajuares-hilo-marfil.webp" }
+      ]
+    },
+    {
+      nombre: "Trío body",
+      descripcion: "Body + pantalón + babero.",
+      precio: 23000,
+      categoria: "Conjuntos",
+      talles: ["3M", "6M", "9M", "12M"],
+      foto: "img/productos/trio-body-rosa.webp",
+      colores: [
+        { nombre: "Rosa", hex: "#E0A9A0", foto: "img/productos/trio-body-rosa.webp" },
+        { nombre: "Celeste", hex: "#B2FFFF", foto: "img/productos/trio-body-celeste.webp" }
+      ]
+    },
+    {
+      nombre: "Body trencito",
+      descripcion: "",
+      precio: 14000,
+      categoria: "Bodies",
+      talles: ["RN", "3M", "6M", "9M"],
+      foto: "img/productos/body-trencito.webp",
+      colores: []
+    },
+    {
+      nombre: "Body patito",
+      descripcion: "",
+      precio: 14000,
+      categoria: "Bodies",
+      talles: ["3M", "6M", "9M"],
+      foto: "img/productos/body-patito.webp",
+      colores: []
+    },
+    {
+      nombre: "Body animalitos",
+      descripcion: "",
+      precio: 10000,
+      categoria: "Bodies",
+      talles: ["RN", "3M", "6M"],
+      foto: "img/productos/body-animalitos-mostaza.webp",
+      colores: [
+        { nombre: "Mostaza", hex: "#D9A93B", foto: "img/productos/body-animalitos-mostaza.webp" },
+        { nombre: "Bordó", hex: "#7B2D3A", foto: "img/productos/body-animalitos-bordo.webp" },
+        { nombre: "Verde militar", hex: "#5B6B45", foto: "img/productos/body-animalitos-verde-militar.webp" },
+        { nombre: "Oso rosa", hex: "#E7B3B8", foto: "img/productos/body-animalitos-oso-rosa.webp" }
+      ]
+    },
+    {
+      nombre: "Recibidores",
+      descripcion: "",
+      precio: 16000,
+      categoria: "Accesorios",
+      talles: ["Único"],
+      foto: "img/productos/recibidores-crema.webp",
+      colores: [
+        { nombre: "Crema", hex: "#F0E4D3", foto: "img/productos/recibidores-crema.webp" },
+        { nombre: "Celeste", hex: "#B2FFFF", foto: "img/productos/recibidores-celeste.webp" }
+      ]
+    },
+    {
+      nombre: "Ajuares 3 piezas",
+      descripcion: "",
+      precio: 20000,
+      categoria: "Ajuares",
+      talles: ["1", "2"],
+      foto: "img/productos/ajuares-3-piezas-blanco-liso.webp",
+      colores: [
+        { nombre: "Blanco liso", hex: "#FFFFFF", foto: "img/productos/ajuares-3-piezas-blanco-liso.webp" },
+        { nombre: "Arena", hex: "#E9D6B5", foto: "img/productos/ajuares-3-piezas-arena.webp" },
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/ajuares-3-piezas-beige.webp" },
+        { nombre: "Blanco con ositos", hex: "#F6EFE6", foto: "img/productos/ajuares-3-piezas-blanco-con-ositos.webp" }
+      ]
+    },
+    {
+      nombre: "Ranitas rib",
+      descripcion: "",
+      precio: 9000,
+      categoria: "Ranitas",
+      talles: ["RN2", "3M", "6M"],
+      foto: "img/productos/ranitas-rib-verde-agua.webp",
+      colores: [
+        { nombre: "Verde agua", hex: "#A8D5C2", foto: "img/productos/ranitas-rib-verde-agua.webp" },
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/ranitas-rib-beige.webp" },
+        { nombre: "Gris claro", hex: "#C9C6C0", foto: "img/productos/ranitas-rib-gris-claro.webp" }
+      ]
+    },
+    {
+      nombre: "Ranitas interlock",
+      descripcion: "",
       precio: 9500,
-      categoria: "Bebés",
-      talles: ["RN", "0-3m", "3-6m", "6-9m"],
-      foto: "img/productos/body-bebe.svg",
+      categoria: "Ranitas",
+      talles: ["RN1", "1", "6M"],
+      foto: "img/productos/ranitas-interlock-beige.webp",
       colores: [
-        { nombre: "Durazno", hex: "#EBBCAC", foto: "img/productos/body-bebe.svg" },
-        { nombre: "Arena", hex: "#E9D6B5", foto: "img/productos/body-bebe-arena.svg" },
-        { nombre: "Hueso", hex: "#F4EBDD", foto: "img/productos/body-bebe-hueso.svg" }
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/ranitas-interlock-beige.webp" },
+        { nombre: "Gris claro", hex: "#C9C6C0", foto: "img/productos/ranitas-interlock-gris-claro.webp" },
+        { nombre: "Blanco", hex: "#FFFFFF", foto: "img/productos/ranitas-interlock-gris-blanco.webp" }
       ]
     },
     {
-      nombre: "Enterito osito de peluche",
-      descripcion: "Enterito con capucha y orejitas. Interior abrigado y cierre frontal para cambiar pañales sin complicaciones.",
-      precio: 24900,
-      categoria: "Bebés",
-      talles: ["0-3m", "3-6m", "6-9m", "9-12m"],
-      foto: "img/productos/enterito-osito.svg",
-      nuevo: true
-    },
-    {
-      nombre: "Vestido de lino con volados",
-      descripcion: "Liviano y fresco, con breteles anchos y volado en la pollera. Para días de calor y salidas especiales.",
-      precio: 22500,
-      categoria: "Nenas",
-      talles: ["2", "4", "6", "8"],
-      foto: "img/productos/vestido-lino.svg",
+      nombre: "Ranitas interlock ositos",
+      descripcion: "",
+      precio: 9500,
+      categoria: "Ranitas",
+      talles: ["RN1", "1", "6M"],
+      foto: "img/productos/ranitas-interlock-ositos-beige.webp",
       colores: [
-        { nombre: "Rosa", hex: "#E0A9A0", foto: "img/productos/vestido-lino.svg" },
-        { nombre: "Arena", hex: "#E9D6B5", foto: "img/productos/vestido-lino-arena.svg" },
-        { nombre: "Salvia", hex: "#A29B89", foto: "img/productos/vestido-lino-salvia.svg" }
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/ranitas-interlock-ositos-beige.webp" },
+        { nombre: "Celeste", hex: "#B2FFFF", foto: "img/productos/ranitas-interlock-ositos-celeste.webp" },
       ]
     },
     {
-      nombre: "Remera estampada corazón",
-      descripcion: "Algodón peinado con estampa de corazón. Cuello redondo y costuras suaves que no molestan.",
-      precio: 12900,
-      categoria: "Nenas",
-      talles: ["2", "4", "6", "8", "10"],
-      foto: "img/productos/remera-corazon.svg"
-    },
-    {
-      nombre: "Jogging rústico",
-      descripcion: "Cintura elastizada con cordón y puño en el tobillo. Resistente para jugar todo el día.",
-      precio: 18700,
-      categoria: "Nenes",
-      talles: ["2", "4", "6", "8", "10", "12"],
-      foto: "img/productos/jogging-rustico.svg",
+      nombre: "Jardinero gabardina",
+      descripcion: "",
+      precio: 24000,
+      categoria: "Jardineros",
+      talles: ["9M", "12M", "18M"],
+      foto: "img/productos/jardinero-gabardina-vison.webp",
       colores: [
-        { nombre: "Salvia", hex: "#A29B89", foto: "img/productos/jogging-rustico.svg" },
-        { nombre: "Moca", hex: "#8D7267", foto: "img/productos/jogging-rustico-moca.svg" },
-        { nombre: "Arena", hex: "#E9D6B5", foto: "img/productos/jogging-rustico-arena.svg" }
+        { nombre: "Visón", hex: "#A89080", foto: "img/productos/jardinero-gabardina-vison.webp" },
+        { nombre: "Verde militar", hex: "#5B6B45", foto: "img/productos/jardinero-gabardina-verde-militar.webp" },
+        { nombre: "Azul marino", hex: "#1F2F4F", foto: "img/productos/jardinero-gabardina-azul-marino.webp" }
       ]
     },
     {
-      nombre: "Remera básica de algodón",
-      descripcion: "Un básico que combina con todo. Algodón peinado, no se deforma con los lavados.",
+      nombre: "Bermudas jeans",
+      descripcion: "",
+      precio: 19000,
+      categoria: "Bermudas",
+      talles: ["18M", "24M", "4", "6"],
+      foto: "img/productos/bermudas-jeans.webp",
+      colores: []
+    },
+    {
+      nombre: "Bermudas gabardina",
+      descripcion: "",
+      precio: 20000,
+      categoria: "Bermudas",
+      talles: ["9M", "12M", "18M", "4"],
+      foto: "img/productos/bermudas-gabardina-azul-marino.webp",
+      colores: [
+        { nombre: "Azul marino", hex: "#1F2F4F", foto: "img/productos/bermudas-gabardina-azul-marino.webp" },
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/bermudas-gabardina-beige.webp" },
+        { nombre: "Verde militar", hex: "#5B6B45", foto: "img/productos/bermudas-gabardina-verde-militar.webp" },
+        { nombre: "Mostaza", hex: "#D9A93B", foto: "img/productos/bermudas-gabardina-mostaza.webp" },
+        { nombre: "Visón", hex: "#A89080", foto: "img/productos/bermudas-gabardina-vison.webp" }
+      ]
+    },
+    {
+      nombre: "Remera lisa",
+      descripcion: "",
+      precio: 8500,
+      categoria: "Remeras",
+      talles: ["12M", "18M", "24M"],
+      foto: "img/productos/remera-lisa-gris.webp",
+      colores: [
+        { nombre: "Gris", hex: "#9A9A9A", foto: "img/productos/remera-lisa-gris.webp" },
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/remera-lisa-beige.webp" },
+        { nombre: "Crema", hex: "#F0E4D3", foto: "img/productos/remera-lisa-crema.webp" },
+        { nombre: "Verde militar", hex: "#5B6B45", foto: "img/productos/remera-lisa-verde-militar.webp" },
+        { nombre: "Negra", hex: "#2B2B2B", foto: "img/productos/remera-lisa-negra.webp" },
+        { nombre: "Bordó", hex: "#7B2D3A", foto: "img/productos/remera-lisa-bordo.webp" },
+        { nombre: "Verde petróleo", hex: "#1F5F63", foto: "img/productos/remera-lisa-verde-petroleo.webp" },
+        { nombre: "Lila", hex: "#C8A2C8", foto: "img/productos/remera-lisa-lila.webp" },
+        { nombre: "Gris clara", hex: "#C9C6C0", foto: "img/productos/remera-lisa-gris-clara.webp" }
+      ]
+    },
+    {
+      nombre: "Buzo hilo",
+      descripcion: "",
+      precio: 21000,
+      categoria: "Abrigos",
+      talles: ["12M", "18M"],
+      foto: "img/productos/buzo-hilo-crema.webp",
+      colores: [
+        { nombre: "Crema", hex: "#F0E4D3", foto: "img/productos/buzo-hilo-crema.webp" },
+        { nombre: "Celeste", hex: "#B2FFFF", foto: "img/productos/buzo-hilo-celeste.webp" }
+      ]
+    },
+    {
+      nombre: "Campera rib",
+      descripcion: "",
+      precio: 20000,
+      categoria: "Abrigos",
+      talles: ["12M", "18M", "24M"],
+      foto: "img/productos/campera-rib-azul.webp",
+      colores: [
+        { nombre: "Azul", hex: "#3B6EA5", foto: "img/productos/campera-rib-azul.webp" },
+        { nombre: "Crema", hex: "#F0E4D3", foto: "img/productos/campera-rib-crema.webp" },
+        { nombre: "Gris claro", hex: "#C9C6C0", foto: "img/productos/campera-rib-gris-claro.webp" }
+      ]
+    },
+    {
+      nombre: "Body Any",
+      descripcion: "",
+      precio: 15500,
+      categoria: "Bodies",
+      talles: ["1", "2", "3", "4", "5"],
+      foto: "img/productos/body-any-rosa-coquett.webp",
+      colores: [
+        { nombre: "Rosa coquett", hex: "#E8AFC0", foto: "img/productos/body-any-rosa-coquett.webp" },
+        { nombre: "Natural", hex: "#EAD9C0", foto: "img/productos/body-any-natural.webp" },
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/body-any-beige.webp" },
+      ]
+    },
+    {
+      nombre: "Body Vaitiere",
+      descripcion: "",
+      precio: 16000,
+      categoria: "Bodies",
+      talles: ["1", "2", "3", "4", "5"],
+      foto: "img/productos/body-vaitiere-rosa-flores.webp",
+      colores: [
+        { nombre: "Rosa flores", hex: "#E6B8C4", foto: "img/productos/body-vaitiere-rosa-flores.webp" }
+      ]
+    },
+    {
+      nombre: "Body Amalia",
+      descripcion: "",
+      precio: 15000,
+      categoria: "Bodies",
+      talles: ["1", "2", "3", "4", "5"],
+      foto: "img/productos/body-amalia-beige.webp",
+      colores: [
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/body-amalia-beige.webp" },
+        { nombre: "Natural", hex: "#EAD9C0", foto: "img/productos/body-amalia-natural.webp" },
+        { nombre: "Rosa coquett", hex: "#E8AFC0", foto: "img/productos/body-amalia-rosa-coquett.webp" }
+      ]
+    },
+    {
+      nombre: "Body Luken",
+      descripcion: "",
+      precio: 12500,
+      categoria: "Bodies",
+      talles: ["1", "2", "3", "4", "5"],
+      foto: "img/productos/body-luken-blanco-1.webp",
+      colores: [
+        { nombre: "Blanco 1", hex: "#FFFFFF", foto: "img/productos/body-luken-blanco-1.webp" },
+        { nombre: "Blanco 2", hex: "#FFFFFF", foto: "img/productos/body-luken-blanco-2.webp" },
+        { nombre: "Menta", hex: "#B9E4D0", foto: "img/productos/body-luken-menta.webp" }
+      ]
+    },
+    {
+      nombre: "Body Mao",
+      descripcion: "",
+      precio: 13500,
+      categoria: "Bodies",
+      talles: ["1", "2", "3", "4", "5"],
+      foto: "img/productos/body-mao-menta.webp",
+      colores: [
+        { nombre: "Menta", hex: "#B9E4D0", foto: "img/productos/body-mao-menta.webp" },
+        { nombre: "Natural", hex: "#EAD9C0", foto: "img/productos/body-mao-natural.webp" },
+        { nombre: "Camel", hex: "#C19A6B", foto: "img/productos/body-mao-camel.webp" }
+      ]
+    },
+    {
+      nombre: "Remera Mao",
+      descripcion: "",
+      precio: 9000,
+      categoria: "Remeras",
+      talles: ["1", "2", "3", "4", "5"],
+      foto: "img/productos/remera-mao-camel.webp",
+      colores: [
+        { nombre: "Camel", hex: "#C19A6B", foto: "img/productos/remera-mao-camel.webp" }
+      ]
+    },
+    {
+      nombre: "Remera Keoki",
+      descripcion: "",
+      precio: 10000,
+      categoria: "Remeras",
+      talles: ["3", "4", "5", "6"],
+      foto: "img/productos/remera-keoki-camel-1.webp",
+      colores: [
+        { nombre: "Camel 1", hex: "#C19A6B", foto: "img/productos/remera-keoki-camel-1.webp" },
+        { nombre: "Camel 2", hex: "#C19A6B", foto: "img/productos/remera-keoki-camel-2.webp" },
+        { nombre: "Blanco 1", hex: "#FFFFFF", foto: "img/productos/remera-keoki-blanco-1.webp" },
+        { nombre: "Blanco 2", hex: "#FFFFFF", foto: "img/productos/remera-keoki-blanco-2.webp" }
+      ]
+    },
+    {
+      nombre: "Short Tayla",
+      descripcion: "",
+      precio: 14500,
+      categoria: "Shorts",
+      talles: ["3", "4", "5"],
+      foto: "img/productos/short-tayla-avellana-chocolate.webp",
+      colores: [
+        { nombre: "Avellana/chocolate", hex: "#8B5E3C", foto: "img/productos/short-tayla-avellana-chocolate.webp" },
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/short-tayla-beige.webp" }
+      ]
+    },
+    {
+      nombre: "Vestido Taraji",
+      descripcion: "",
+      precio: 17800,
+      categoria: "Vestidos",
+      talles: ["3", "4", "5"],
+      foto: "img/productos/vestido-taraji-avellana.webp",
+      colores: [
+        { nombre: "Avellana", hex: "#A9784C", foto: "img/productos/vestido-taraji-avellana.webp" }
+      ]
+    },
+    {
+      nombre: "Vestido Kenia",
+      descripcion: "",
+      precio: 21000,
+      categoria: "Vestidos",
+      talles: ["3", "4", "5"],
+      foto: "img/productos/vestido-kenia-verde.webp",
+      colores: [
+        { nombre: "Verde", hex: "#6B8E4E", foto: "img/productos/vestido-kenia-verde.webp" }
+      ]
+    },
+    {
+      nombre: "Camiseta Onika",
+      descripcion: "",
+      precio: 16500,
+      categoria: "Musculosas",
+      talles: ["3", "4", "5"],
+      foto: "img/productos/camiseta-onika-uva.webp",
+      colores: [
+        { nombre: "Uva", hex: "#6E4B7A", foto: "img/productos/camiseta-onika-uva.webp" }
+      ]
+    },
+    {
+      nombre: "Camiseta Amira",
+      descripcion: "",
+      precio: 16500,
+      categoria: "Musculosas",
+      talles: ["3", "4", "5"],
+      foto: "img/productos/camiseta-amira-chocolate.webp",
+      colores: [
+        { nombre: "Chocolate", hex: "#4A2F23", foto: "img/productos/camiseta-amira-chocolate.webp" },
+        { nombre: "Blanco", hex: "#FFFFFF", foto: "img/productos/camiseta-amira-blanco.webp" }
+      ]
+    },
+    {
+      nombre: "Camiseta Lalani",
+      descripcion: "",
+      precio: 17000,
+      categoria: "Musculosas",
+      talles: ["3", "4", "5"],
+      foto: "img/productos/camiseta-lalani-bosque.webp",
+      colores: [
+        { nombre: "Bosque", hex: "#3F5C3F", foto: "img/productos/camiseta-lalani-bosque.webp" },
+      ]
+    },
+    {
+      nombre: "Calza Ayla",
+      descripcion: "",
       precio: 11500,
-      categoria: "Nenes",
-      talles: ["2", "4", "6", "8", "10", "12"],
-      foto: "img/productos/remera-basica.svg",
+      categoria: "Calzas",
+      talles: ["1", "2", "3", "4", "5"],
+      foto: "img/productos/calza-ayla-uva.webp",
       colores: [
-        { nombre: "Moca", hex: "#8D7267", foto: "img/productos/remera-basica.svg" },
-        { nombre: "Arena", hex: "#E9D6B5", foto: "img/productos/remera-basica-arena.svg" },
-        { nombre: "Salvia", hex: "#A29B89", foto: "img/productos/remera-basica-salvia.svg" }
+        { nombre: "Uva", hex: "#6E4B7A", foto: "img/productos/calza-ayla-uva.webp" },
+        { nombre: "Camel", hex: "#C19A6B", foto: "img/productos/calza-ayla-camel.webp" }
       ]
     },
     {
-      nombre: "Pijama de algodón dos piezas",
-      descripcion: "Remera y pantalón largo en algodón suave. Sin etiquetas que pinchen.",
-      precio: 19900,
-      categoria: "Pijamas",
-      talles: ["2", "4", "6", "8"],
-      foto: "img/productos/pijama-algodon.svg"
-    },
-    {
-      nombre: "Pijama polar con estrellas",
-      descripcion: "Polar liviano y calentito para las noches frías. Estampa de estrellas en todo el conjunto.",
-      precio: 26500,
-      categoria: "Pijamas",
-      talles: ["2", "4", "6", "8", "10"],
-      foto: "img/productos/pijama-polar.svg",
-      agotado: true
-    },
-    {
-      nombre: "Buzo con capucha de frisa",
-      descripcion: "Frisa suave por dentro, capucha con cordón y bolsillo canguro.",
-      precio: 28900,
-      categoria: "Abrigos",
-      talles: ["4", "6", "8", "10", "12"],
-      foto: "img/productos/buzo-capucha.svg",
+      nombre: "Bermuda Davu",
+      descripcion: "",
+      precio: 15000,
+      categoria: "Bermudas",
+      talles: ["3", "4", "5", "6"],
+      foto: "img/productos/bermuda-davu-verde.webp",
       colores: [
-        { nombre: "Terracota", hex: "#A67A5F", foto: "img/productos/buzo-capucha.svg" },
-        { nombre: "Crema", hex: "#F0E4D3", foto: "img/productos/buzo-capucha-crema.svg" },
-        { nombre: "Salvia", hex: "#A29B89", foto: "img/productos/buzo-capucha-salvia.svg" }
+        { nombre: "Verde", hex: "#6B8E4E", foto: "img/productos/bermuda-davu-verde.webp" },
+        { nombre: "Gris", hex: "#9A9A9A", foto: "img/productos/bermuda-davu-gris.webp" }
       ]
     },
     {
-      nombre: "Campera de abrigo inflable",
-      descripcion: "Liviana y cálida, con cierre y bolsillos. Repele el viento y la llovizna.",
-      precio: 42000,
+      nombre: "Camisa Azibo",
+      descripcion: "",
+      precio: 16500,
+      categoria: "Camisas",
+      talles: ["3", "4", "5"],
+      foto: "img/productos/camisa-azibo-beige.webp",
+      colores: [
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/camisa-azibo-beige.webp" },
+        { nombre: "Natural", hex: "#EAD9C0", foto: "img/productos/camisa-azibo-natural.webp" }
+      ]
+    },
+    {
+      nombre: "Buzo Azibo",
+      descripcion: "",
+      precio: 15500,
       categoria: "Abrigos",
-      talles: ["2", "4", "6", "8", "10"],
-      foto: "img/productos/campera-abrigo.svg"
-    },
-    {
-      nombre: "Gorro de lana con pompón",
-      descripcion: "Tejido a punto jersey con forro interior suave. Talle único elástico.",
-      precio: 8900,
-      categoria: "Accesorios",
-      talles: ["Único"],
-      foto: "img/productos/gorro-lana.svg"
-    },
-    {
-      nombre: "Pack x3 medias antideslizantes",
-      descripcion: "Con suela de silicona para que no resbalen. Vienen en tonos tierra.",
-      precio: 7500,
-      categoria: "Accesorios",
-      talles: ["Único"],
-      foto: "img/productos/medias-pack.svg",
-      nuevo: true
+      talles: ["3", "4", "5"],
+      foto: "img/productos/buzo-azibo-beige.webp",
+      colores: [
+        { nombre: "Beige", hex: "#D9C3A5", foto: "img/productos/buzo-azibo-beige.webp" },
+        { nombre: "Natural", hex: "#EAD9C0", foto: "img/productos/buzo-azibo-natural.webp" }
+      ]
     }
   ]
 };
