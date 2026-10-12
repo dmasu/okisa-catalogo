@@ -6,15 +6,30 @@
 (function () {
   "use strict";
 
-  var DATA = window.OKISA;
-  if (!DATA) {
+  var BASE = window.OKISA;
+  if (!BASE) {
     document.getElementById("contador").textContent =
       "No se pudo cargar data/productos.js";
     return;
   }
 
+  // Los productos vienen de Supabase (js/datos.js). Si no está configurado
+  // o no responde, se usa la copia guardada o data/productos.js.
+  if (window.OkisaDatos && window.OkisaDatos.configurado()) {
+    document.getElementById("contador").textContent = "Cargando productos…";
+  }
+  var cargando = window.OkisaDatos
+    ? window.OkisaDatos.cargar(BASE)
+    : Promise.resolve({ datos: BASE, origen: "archivo" });
+
+  cargando.then(function (r) { iniciar(r.datos); });
+
+  function iniciar(DATA) {
   var CONFIG = DATA.CONFIG;
-  var PRODUCTOS = DATA.PRODUCTOS.map(function (p, i) { p.id = i; return p; });
+  var PRODUCTOS = DATA.PRODUCTOS.map(function (p, i) {
+    if (p.id == null) p.id = i;
+    return p;
+  });
 
   // Canales de contacto activos (según lo que haya en CONFIG)
   var CANALES = [];
@@ -313,7 +328,9 @@
   grilla.addEventListener("click", function (e) {
     var card = e.target.closest(".card");
     if (!card) return;
-    var p = PRODUCTOS[Number(card.getAttribute("data-id"))];
+    var idTarjeta = card.getAttribute("data-id");
+    var p = PRODUCTOS.filter(function (x) { return String(x.id) === idTarjeta; })[0];
+    if (!p) return;
     var s = seleccion(p);
 
     // Talle
@@ -433,4 +450,5 @@
   armarChips();
   armarTalles();
   render();
+  }
 })();

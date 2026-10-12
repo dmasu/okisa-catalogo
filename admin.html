@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Panel · Okisa</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css?v=1">
+</head>
+<body>
+
+  <!-- Falta configurar Supabase -->
+  <section class="aviso-pantalla" id="vista-config" hidden>
+    <img src="img/favicon.png" alt="" width="56" height="56">
+    <h1>Falta conectar la base de datos</h1>
+    <p>Completá la <strong>url</strong> y la <strong>anonKey</strong> de tu proyecto de Supabase en
+      <code>js/supabase-config.js</code> y volvé a abrir esta página.</p>
+    <p class="nota">Los pasos están en <code>LEEME-ADMIN.md</code>.</p>
+  </section>
+
+  <!-- Ingreso -->
+  <section class="aviso-pantalla" id="vista-login" hidden>
+    <img src="img/favicon.png" alt="" width="56" height="56">
+    <h1>Panel de Okisa</h1>
+    <form class="login" id="form-login" autocomplete="on">
+      <label class="campo">
+        <span>Email</span>
+        <input id="login-email" type="email" name="email" autocomplete="username" required>
+      </label>
+      <label class="campo">
+        <span>Contraseña</span>
+        <input id="login-clave" type="password" name="password" autocomplete="current-password" required>
+      </label>
+      <p class="error" id="login-error" role="alert"></p>
+      <button class="btn btn--principal" id="login-enviar" type="submit">Ingresar</button>
+    </form>
+    <p class="nota"><a href="index.html">Volver al catálogo</a></p>
+  </section>
+
+  <!-- Panel -->
+  <div id="vista-panel" hidden>
+    <header class="barra">
+      <div class="barra__marca">
+        <img src="img/favicon.png" alt="" width="36" height="36">
+        <span class="barra__titulo">Panel</span>
+      </div>
+      <div class="barra__der">
+        <span class="barra__usuario" id="usuario-email"></span>
+        <a class="btn btn--texto" href="index.html" target="_blank" rel="noopener">Ver catálogo</a>
+        <button class="btn btn--texto" id="salir" type="button">Salir</button>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="Secciones">
+      <button class="tab" role="tab" id="tab-btn-productos" aria-selected="true" aria-controls="tab-productos" type="button">Productos</button>
+      <button class="tab" role="tab" id="tab-btn-ajustes" aria-selected="false" aria-controls="tab-ajustes" type="button">Categorías y talles</button>
+    </nav>
+
+    <main class="contenido">
+
+      <section id="tab-productos" role="tabpanel" aria-labelledby="tab-btn-productos">
+        <div class="herramientas">
+          <label class="campo campo--buscar">
+            <span class="sr-only">Buscar producto</span>
+            <input id="filtro" type="search" placeholder="Buscar por nombre, categoría o color…" autocomplete="off">
+          </label>
+          <button class="btn btn--principal" id="nuevo" type="button">Nuevo producto</button>
+        </div>
+        <p class="resumen" id="resumen" aria-live="polite"></p>
+
+        <div class="importar" id="importar" hidden>
+          <h2>Todavía no hay productos en la base</h2>
+          <p>Podés traer de una sola vez los <strong id="importar-cantidad">0</strong> productos y las fotos que hoy
+            están en <code>data/productos.js</code>. Se cargan sin cambios y después los editás desde acá.</p>
+          <div class="progreso" id="importar-progreso" hidden>
+            <div class="progreso__barra"><span id="importar-barra"></span></div>
+            <p id="importar-texto"></p>
+          </div>
+          <button class="btn btn--principal" id="importar-boton" type="button">Importar catálogo actual</button>
+        </div>
+
+        <ul class="lista" id="lista"></ul>
+        <p class="vacio" id="lista-vacia" hidden>No hay productos que coincidan con la búsqueda.</p>
+      </section>
+
+      <section id="tab-ajustes" role="tabpanel" aria-labelledby="tab-btn-ajustes" hidden>
+        <div class="ajustes">
+          <div class="ajuste">
+            <h2>Categorías</h2>
+            <p class="ayuda">Son los botones de filtro del catálogo, en este orden. Si cambiás un nombre, se actualiza en todos sus productos.</p>
+            <form class="agregar" id="form-categoria">
+              <label class="sr-only" for="categoria-nueva">Nueva categoría</label>
+              <input id="categoria-nueva" type="text" maxlength="30" placeholder="Nueva categoría (ej: Vestidos)" required>
+              <button class="btn" type="submit">Agregar</button>
+            </form>
+            <ul class="filas" id="lista-categorias"></ul>
+          </div>
+
+          <div class="ajuste">
+            <h2>Talles</h2>
+            <p class="ayuda">Son las opciones que podés tildar en cada producto y el orden del filtro de talles.</p>
+            <form class="agregar" id="form-talle">
+              <label class="sr-only" for="talle-nuevo">Nuevo talle</label>
+              <input id="talle-nuevo" type="text" maxlength="12" placeholder="Nuevo talle (ej: 8)" required>
+              <button class="btn" type="submit">Agregar</button>
+            </form>
+            <ul class="filas" id="lista-talles"></ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Formulario de producto -->
+  <dialog class="dialogo" id="dlg-producto" aria-labelledby="dlg-titulo">
+    <form id="form-producto" novalidate>
+      <header class="dialogo__cabeza">
+        <h2 id="dlg-titulo">Nuevo producto</h2>
+        <button class="dialogo__cerrar" id="p-cerrar" type="button" aria-label="Cerrar">×</button>
+      </header>
+
+      <div class="dialogo__cuerpo">
+        <label class="campo">
+          <span>Nombre</span>
+          <input id="p-nombre" type="text" maxlength="80" required>
+        </label>
+
+        <label class="campo">
+          <span>Descripción <em>(opcional)</em></span>
+          <textarea id="p-descripcion" rows="2" maxlength="240"></textarea>
+        </label>
+
+        <div class="par">
+          <label class="campo">
+            <span>Precio (en pesos)</span>
+            <input id="p-precio" type="number" min="0" step="1" inputmode="numeric" required>
+          </label>
+          <label class="campo">
+            <span>Categoría</span>
+            <select id="p-categoria" required></select>
+          </label>
+        </div>
+
+        <fieldset class="grupo">
+          <legend>Talles disponibles</legend>
+          <div class="chips-talle" id="p-talles"></div>
+        </fieldset>
+
+        <fieldset class="grupo">
+          <legend>Estado</legend>
+          <label class="check"><input type="checkbox" id="p-nuevo"> Mostrar etiqueta “Nuevo”</label>
+          <label class="check"><input type="checkbox" id="p-agotado"> Agotado (se ve pero no se puede consultar)</label>
+          <label class="check"><input type="checkbox" id="p-visible" checked> Visible en el catálogo</label>
+        </fieldset>
+
+        <fieldset class="grupo">
+          <legend>Foto principal</legend>
+          <p class="ayuda">Se usa cuando el producto no tiene colores. Se optimiza sola: formato WebP, hasta 800 × 1000 px. En el catálogo se muestra vertical (4:5).</p>
+          <div id="p-foto"></div>
+        </fieldset>
+
+        <fieldset class="grupo">
+          <legend>Colores</legend>
+          <p class="ayuda">Cada color tiene su foto: al elegirlo en el catálogo, cambia la imagen.</p>
+          <div id="p-colores"></div>
+          <button class="btn btn--chico" id="p-agregar-color" type="button">Agregar color</button>
+        </fieldset>
+      </div>
+
+      <footer class="dialogo__pie">
+        <button class="btn btn--peligro" id="p-eliminar" type="button" hidden>Eliminar</button>
+        <span class="espaciador"></span>
+        <button class="btn btn--texto" id="p-cancelar" type="button">Cancelar</button>
+        <button class="btn btn--principal" id="p-guardar" type="submit">Guardar</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="data/productos.js?v=7"></script>
+  <script src="js/supabase-config.js?v=7"></script>
+  <script src="js/admin.js?v=1"></script>
+</body>
+</html>

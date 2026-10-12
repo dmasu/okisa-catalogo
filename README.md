@@ -2,13 +2,22 @@
 
 Catálogo estático de ropa para niños. Sin base de datos ni instalación: solo HTML, CSS y JavaScript.
 
+> **Administración con panel:** el catálogo puede leer sus productos de Supabase y editarse desde `admin.html`,
+> sin tocar archivos ni volver a publicar. Pasos en [`LEEME-ADMIN.md`](LEEME-ADMIN.md).
+> Mientras no se configure, todo lo de abajo sigue funcionando igual con `data/productos.js`.
+
 ## Estructura
 
 ```
 index.html          Página principal
 css/style.css       Estilos (paleta del logo)
 js/app.js           Lógica de filtros, buscador y WhatsApp
-data/productos.js   ⭐ Productos, categorías, talles y datos de contacto
+data/productos.js   ⭐ Datos de contacto y respaldo de productos, categorías y talles
+admin.html          Panel de administración (requiere Supabase)
+js/supabase-config.js  Conexión con Supabase
+js/datos.js            Carga de datos con respaldo
+js/admin.js            Lógica del panel
+supabase/schema.sql    Tablas y reglas de seguridad
 img/logo.jpg        Logo
 img/productos/      Fotos de los productos
 ```
